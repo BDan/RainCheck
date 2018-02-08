@@ -37,6 +37,6 @@ Self-contained _jar_ packages can be produced by running `mvnw package`. The res
 
 ## Running tests
 
-Run the included test suite with `mvnw test'
+Run the included test suite with `mvnw test`
 
 

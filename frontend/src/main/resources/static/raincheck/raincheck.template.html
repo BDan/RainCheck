@@ -1,39 +1,37 @@
 <div class="container-fluid">
-
 	<div>
 		Location <input ng-model="$ctrl.location_query">
 		<button type="button" ng-show="$ctrl.location_query"
 			ng-click="$ctrl.locationSearch();">Search</button>
 	</div>
-    <div ng-show="$ctrl.locations.success==false" style="color: red">{{$ctrl.locations.error}}</div>
+	<div ng-show="$ctrl.locations.success==false" style="color: red">{{$ctrl.locations.error}}</div>
 	<div ng-show="$ctrl.showLocations && $ctrl.locations.success == true">
-
 		<p>
 			<b>Results</b>
 		</p>
-		<p ng-show="$ctrl.locations.locations.length==0" style="color:red">Not found</p>
+		<p ng-show="$ctrl.locations.locations.length==0" style="color: red">Not
+			found</p>
 
 		<ul ng-repeat="location in $ctrl.locations.locations">
 			<li>{{location.city}},{{location.country}}
-				<button type="button" ng-click="$ctrl.selection=location;$ctrl.fetchWeather();">Select</button>
+				<button type="button"
+					ng-click="$ctrl.selection=location;$ctrl.fetchWeather();">Select</button>
 			</li>
 		</ul>
-
 	</div>
 	<div ng-show="$ctrl.weather.success==true">
 		<b>Weather</b>
-		<table style="margin:20px">
+		<table style="margin: 20px">
 			<tr>
 				<th>City:</th>
 				<td>{{$ctrl.selection.city}}</td>
 			</tr>
-
-            <tr>
+			<tr>
 				<th>Country:</th>
 				<td>{{$ctrl.selection.country}}</td>
 			</tr>
 
-            <tr>
+			<tr>
 				<th>Temperature[C]:</th>
 				<td>{{$ctrl.weather.tempC}}</td>
 			</tr>
@@ -56,29 +54,27 @@
 			</tr>
 
 		</table>
-    </div>
-    <div ng-show="$ctrl.weather.success==false" style="color: red">{{$ctrl.weather.error}}</div>
+	</div>
+	<div ng-show="$ctrl.weather.success==false" style="color: red">{{$ctrl.weather.error}}</div>
 
-    <div style="margin:20px" ng-show="$ctrl.forecast.success==true">
-        <p>Forecast</p>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Highest [C]</th>
-                <th>Lowest [C]</th>
-                <th>Average Wind Speed [Km/h]</th>
-            </tr>
-            <tr ng-repeat="day in $ctrl.forecast.forecastDays">
-                <td>{{day.date}}</td>
-                <td>{{day.maxC}}</td>
-                <td>{{day.minC}}</td>
-                <td>{{day.averageWindKmh}}</td>
-                
-            </tr>
-            </tr>
-        </table>
+	<div style="margin: 20px" ng-show="$ctrl.forecast.success==true">
+		<p>Forecast</p>
+		<table>
+			<tr>
+				<th>Date</th>
+				<th>Highest [C]</th>
+				<th>Lowest [C]</th>
+				<th>Average Wind Speed [Km/h]</th>
+			</tr>
+			<tr ng-repeat="day in $ctrl.forecast.forecastDays">
+				<td>{{day.date}}</td>
+				<td>{{day.maxC}}</td>
+				<td>{{day.minC}}</td>
+				<td>{{day.averageWindKmh}}</td>
+			</tr>
+		</table>
 	</div>
 
-	
+
 
 </div>
