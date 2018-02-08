@@ -1,0 +1,134 @@
+
+<response>
+	<version>0.1</version>
+	<termsofService>http://www.wunderground.com/weather/api/d/terms.html</termsofService>
+	<features>
+		<feature>conditions</feature>
+	</features>
+  <current_observation>
+		<image>
+		<url>http://icons.wxug.com/graphics/wu2/logo_130x80.png</url>
+		<title>Weather Underground</title>
+		<link>http://www.wunderground.com</link>
+		</image>
+		<display_location>
+		<full>Oului, Central African Republic</full>
+		<city>Oului</city>
+		<state>OP</state>
+		<state_name>Central African Republic</state_name>
+		<country>CE</country>
+		<country_iso3166>CF</country_iso3166>
+		<zip>00000</zip>
+		<magic>1029</magic>
+		<wmo>64706</wmo>
+		<latitude>7.44000006</latitude>
+		<longitude>15.84000015</longitude>
+		<elevation>974.1</elevation>
+		</display_location>
+		<observation_location>
+		<full>Moundou, </full>
+		<city>Moundou</city>
+		<state></state>
+		<country>Chad</country>
+		<country_iso3166>CF</country_iso3166>
+		<latitude>8.61666679</latitude>
+		<longitude>16.06666756</longitude>
+		<elevation>1404 ft</elevation>
+		</observation_location>
+		<estimated>
+		</estimated>
+		<station_id>64706</station_id>
+		<observation_time>Last Updated on February 6, 4:00 PM WAT</observation_time>
+		<observation_time_rfc822>Tue, 06 Feb 2018 16:00:00 +0100</observation_time_rfc822>
+		<observation_epoch>1517929200</observation_epoch>
+		<local_time_rfc822>Tue, 06 Feb 2018 18:24:27 +0100</local_time_rfc822>
+		<local_epoch>1517937867</local_epoch>
+		<local_tz_short>WAT</local_tz_short>
+		<local_tz_long>Africa/Bangui</local_tz_long>
+		<local_tz_offset>+0100</local_tz_offset>
+		<weather>Clear</weather>
+		<temperature_string>102 F (39 C)</temperature_string>
+		<temp_f>102</temp_f>
+		<temp_c>39</temp_c>
+		<relative_humidity>4%</relative_humidity>
+		<wind_string>From the South at 7 MPH</wind_string>
+		<wind_dir>South</wind_dir>
+		<wind_degrees>180</wind_degrees>
+		<wind_mph>7</wind_mph>
+		<wind_gust_mph>0</wind_gust_mph>
+		<wind_kph>11</wind_kph>
+		<wind_gust_kph>0</wind_gust_kph>
+		<pressure_mb>1003</pressure_mb>
+		<pressure_in>29.63</pressure_in>
+		<pressure_trend></pressure_trend>
+		
+		<dewpoint_string>23 F (-5 C)</dewpoint_string>
+		<dewpoint_f>23</dewpoint_f>
+		<dewpoint_c>-5</dewpoint_c>
+		
+		
+		<heat_index_string>NA</heat_index_string>
+		<heat_index_f>NA</heat_index_f>
+		<heat_index_c>NA</heat_index_c>
+		
+		
+		<windchill_string>NA</windchill_string>
+		<windchill_f>NA</windchill_f>
+		<windchill_c>NA</windchill_c>
+		
+        <feelslike_string>102 F (39 C)</feelslike_string>
+        <feelslike_f>102</feelslike_f>
+        <feelslike_c>39</feelslike_c>
+		<visibility_mi>5.0</visibility_mi>
+		<visibility_km>8.0</visibility_km>
+		<solarradiation></solarradiation>
+		<UV>-1</UV>
+		<precip_1hr_string>0.00 in (0 mm)</precip_1hr_string>
+		<precip_1hr_in>0.00</precip_1hr_in>
+		<precip_1hr_metric>0</precip_1hr_metric>
+		<precip_today_string>0.00 in (0 mm)</precip_today_string>
+		<precip_today_in>0.00</precip_today_in>
+		<precip_today_metric>0</precip_today_metric>
+		
+		
+		
+		<icon>clear</icon>
+		<icon_url>http://icons.wxug.com/i/c/k/nt_clear.gif</icon_url>
+		<forecast_url>http://www.wunderground.com/global/stations/64706.html</forecast_url>
+        
+		<history_url>http://www.wunderground.com/history/airport/64706/2018/2/6/DailyHistory.html</history_url>
+		
+		<ob_url>http://www.wunderground.com/cgi-bin/findweather/getForecast?query=8.61666679,16.06666756</ob_url>
+	</current_observation>
+
+		
+	
+	
+	
+	
+    
+	
+	
+		
+	
+
+    
+    
+    
+	
+  
+	
+	
+	
+	
+	
+    
+    
+
+
+    
+    
+    
+    
+</response>
+	

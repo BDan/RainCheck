@@ -1,0 +1,424 @@
+
+<response>
+	<version>0.1</version>
+	<termsofService>http://www.wunderground.com/weather/api/d/terms.html</termsofService>
+	<features>
+		<feature>forecast</feature>
+	</features>
+	<forecast>
+		<txt_forecast>
+		<date>4:39 PM WAT</date>
+		<forecastdays>
+		<forecastday>
+		<period>0</period>
+		<icon>clear</icon>
+		<icon_url>http://icons.wxug.com/i/c/k/clear.gif</icon_url>
+		<title>Wednesday</title>
+		<fcttext><![CDATA[Clear. Lows overnight in the upper 60s.]]></fcttext>
+		<fcttext_metric><![CDATA[Clear. Low 20C.]]></fcttext_metric>
+		<pop>0</pop>
+		</forecastday>
+		<forecastday>
+		<period>1</period>
+		<icon>nt_clear</icon>
+		<icon_url>http://icons.wxug.com/i/c/k/nt_clear.gif</icon_url>
+		<title>Wednesday Night</title>
+		<fcttext><![CDATA[Clear skies. Low 67F. Winds light and variable.]]></fcttext>
+		<fcttext_metric><![CDATA[Clear skies. Low around 20C. Winds light and variable.]]></fcttext_metric>
+		<pop>0</pop>
+		</forecastday>
+		<forecastday>
+		<period>2</period>
+		<icon>clear</icon>
+		<icon_url>http://icons.wxug.com/i/c/k/clear.gif</icon_url>
+		<title>Thursday</title>
+		<fcttext><![CDATA[Generally sunny. High 98F. Winds N at 5 to 10 mph.]]></fcttext>
+		<fcttext_metric><![CDATA[Mostly sunny skies. High 37C. Winds N at 10 to 15 km/h.]]></fcttext_metric>
+		<pop>0</pop>
+		</forecastday>
+		<forecastday>
+		<period>3</period>
+		<icon>nt_partlycloudy</icon>
+		<icon_url>http://icons.wxug.com/i/c/k/nt_partlycloudy.gif</icon_url>
+		<title>Thursday Night</title>
+		<fcttext><![CDATA[A few clouds from time to time. Low 69F. Winds light and variable.]]></fcttext>
+		<fcttext_metric><![CDATA[A few clouds. Low 21C. Winds light and variable.]]></fcttext_metric>
+		<pop>0</pop>
+		</forecastday>
+		<forecastday>
+		<period>4</period>
+		<icon>clear</icon>
+		<icon_url>http://icons.wxug.com/i/c/k/clear.gif</icon_url>
+		<title>Friday</title>
+		<fcttext><![CDATA[Sunny along with a few clouds. High 98F. Winds NNW at 10 to 15 mph.]]></fcttext>
+		<fcttext_metric><![CDATA[Sunny along with a few clouds. High 37C. Winds NNW at 15 to 25 km/h.]]></fcttext_metric>
+		<pop>0</pop>
+		</forecastday>
+		<forecastday>
+		<period>5</period>
+		<icon>nt_partlycloudy</icon>
+		<icon_url>http://icons.wxug.com/i/c/k/nt_partlycloudy.gif</icon_url>
+		<title>Friday Night</title>
+		<fcttext><![CDATA[Partly cloudy. Low near 70F. Winds light and variable.]]></fcttext>
+		<fcttext_metric><![CDATA[A few clouds from time to time. Low 21C. Winds light and variable.]]></fcttext_metric>
+		<pop>0</pop>
+		</forecastday>
+		<forecastday>
+		<period>6</period>
+		<icon>clear</icon>
+		<icon_url>http://icons.wxug.com/i/c/k/clear.gif</icon_url>
+		<title>Saturday</title>
+		<fcttext><![CDATA[A few passing clouds, otherwise generally sunny. High 97F. Winds NNW at 10 to 15 mph.]]></fcttext>
+		<fcttext_metric><![CDATA[A few passing clouds, otherwise generally sunny. High 36C. Winds NNW at 10 to 15 km/h.]]></fcttext_metric>
+		<pop>0</pop>
+		</forecastday>
+		<forecastday>
+		<period>7</period>
+		<icon>nt_partlycloudy</icon>
+		<icon_url>http://icons.wxug.com/i/c/k/nt_partlycloudy.gif</icon_url>
+		<title>Saturday Night</title>
+		<fcttext><![CDATA[A few clouds from time to time. Low around 70F. Winds light and variable.]]></fcttext>
+		<fcttext_metric><![CDATA[A few clouds from time to time. Low 21C. Winds light and variable.]]></fcttext_metric>
+		<pop>0</pop>
+		</forecastday>
+		</forecastdays>
+		</txt_forecast>
+		<simpleforecast>
+		<forecastdays>
+		<forecastday>
+		<date>
+  <epoch>1518026400</epoch>
+  <pretty_short>7:00 PM WAT</pretty_short>
+  <pretty>7:00 PM WAT on February 07, 2018</pretty>
+  <day>7</day>
+  <month>2</month>
+  <year>2018</year>
+  <yday>37</yday>
+  <hour>19</hour>
+  <min>00</min>
+  <sec>0</sec>
+  <isdst>0</isdst>
+  <monthname>February</monthname>
+  <monthname_short>Feb</monthname_short>
+  <weekday_short>Wed</weekday_short>
+  <weekday>Wednesday</weekday>
+  <ampm>PM</ampm>
+  <tz_short>WAT</tz_short>
+  <tz_long>Africa/Bangui</tz_long>
+</date>
+					<period>1</period>
+					<high>
+						<fahrenheit>103</fahrenheit>
+						<celsius>39</celsius>
+					</high>
+					<low>
+						<fahrenheit>67</fahrenheit>
+						<celsius>19</celsius>
+					</low>
+					<conditions>Clear</conditions>
+					
+					<icon>clear</icon>
+					<icon_url>http://icons.wxug.com/i/c/k/clear.gif</icon_url>
+					<skyicon></skyicon>
+					<pop>0</pop>
+					<qpf_allday>
+						<in>0.00</in>
+						<mm>0</mm>
+					</qpf_allday>
+					<qpf_day>
+						<in></in>
+						<mm></mm>
+					</qpf_day>
+					<qpf_night>
+						<in>0.00</in>
+						<mm>0</mm>
+					</qpf_night>
+					<snow_allday>
+						<in>0.0</in>
+						<cm>0.0</cm>
+					</snow_allday>
+					<snow_day>
+						<in></in>
+						<cm></cm>
+					</snow_day>
+					<snow_night>
+						<in>0.0</in>
+						<cm>0.0</cm>
+					</snow_night>
+					<maxwind>
+						<mph>9</mph>
+						<kph>15</kph>
+						<dir>Variable</dir>
+						<degrees>0</degrees>
+					</maxwind>
+					<avewind>
+						<mph>4</mph>
+						<kph>6</kph>
+						<dir>Variable</dir>
+						<degrees>0</degrees>
+					</avewind>
+					<avehumidity>25</avehumidity>
+					<maxhumidity>0</maxhumidity>
+					<minhumidity>0</minhumidity>
+				</forecastday>
+				
+				<forecastday>
+					<date>
+  <epoch>1518112800</epoch>
+  <pretty_short>7:00 PM WAT</pretty_short>
+  <pretty>7:00 PM WAT on February 08, 2018</pretty>
+  <day>8</day>
+  <month>2</month>
+  <year>2018</year>
+  <yday>38</yday>
+  <hour>19</hour>
+  <min>00</min>
+  <sec>0</sec>
+  <isdst>0</isdst>
+  <monthname>February</monthname>
+  <monthname_short>Feb</monthname_short>
+  <weekday_short>Thu</weekday_short>
+  <weekday>Thursday</weekday>
+  <ampm>PM</ampm>
+  <tz_short>WAT</tz_short>
+  <tz_long>Africa/Bangui</tz_long>
+</date>
+					<period>2</period>
+					<high>
+						<fahrenheit>98</fahrenheit>
+						<celsius>37</celsius>
+					</high>
+					<low>
+						<fahrenheit>69</fahrenheit>
+						<celsius>21</celsius>
+					</low>
+					<conditions>Clear</conditions>
+					
+					<icon>clear</icon>
+					<icon_url>http://icons.wxug.com/i/c/k/clear.gif</icon_url>
+					<skyicon></skyicon>
+					<pop>0</pop>
+					<qpf_allday>
+						<in>0.00</in>
+						<mm>0</mm>
+					</qpf_allday>
+					<qpf_day>
+						<in>0.00</in>
+						<mm>0</mm>
+					</qpf_day>
+					<qpf_night>
+						<in>0.00</in>
+						<mm>0</mm>
+					</qpf_night>
+					<snow_allday>
+						<in>0.0</in>
+						<cm>0.0</cm>
+					</snow_allday>
+					<snow_day>
+						<in>0.0</in>
+						<cm>0.0</cm>
+					</snow_day>
+					<snow_night>
+						<in>0.0</in>
+						<cm>0.0</cm>
+					</snow_night>
+					<maxwind>
+						<mph>10</mph>
+						<kph>16</kph>
+						<dir>N</dir>
+						<degrees>6</degrees>
+					</maxwind>
+					<avewind>
+						<mph>9</mph>
+						<kph>14</kph>
+						<dir>N</dir>
+						<degrees>6</degrees>
+					</avewind>
+					<avehumidity>14</avehumidity>
+					<maxhumidity>0</maxhumidity>
+					<minhumidity>0</minhumidity>
+				</forecastday>
+				
+				<forecastday>
+					<date>
+  <epoch>1518199200</epoch>
+  <pretty_short>7:00 PM WAT</pretty_short>
+  <pretty>7:00 PM WAT on February 09, 2018</pretty>
+  <day>9</day>
+  <month>2</month>
+  <year>2018</year>
+  <yday>39</yday>
+  <hour>19</hour>
+  <min>00</min>
+  <sec>0</sec>
+  <isdst>0</isdst>
+  <monthname>February</monthname>
+  <monthname_short>Feb</monthname_short>
+  <weekday_short>Fri</weekday_short>
+  <weekday>Friday</weekday>
+  <ampm>PM</ampm>
+  <tz_short>WAT</tz_short>
+  <tz_long>Africa/Bangui</tz_long>
+</date>
+					<period>3</period>
+					<high>
+						<fahrenheit>98</fahrenheit>
+						<celsius>37</celsius>
+					</high>
+					<low>
+						<fahrenheit>70</fahrenheit>
+						<celsius>21</celsius>
+					</low>
+					<conditions>Clear</conditions>
+					
+					<icon>clear</icon>
+					<icon_url>http://icons.wxug.com/i/c/k/clear.gif</icon_url>
+					<skyicon></skyicon>
+					<pop>0</pop>
+					<qpf_allday>
+						<in>0.00</in>
+						<mm>0</mm>
+					</qpf_allday>
+					<qpf_day>
+						<in>0.00</in>
+						<mm>0</mm>
+					</qpf_day>
+					<qpf_night>
+						<in>0.00</in>
+						<mm>0</mm>
+					</qpf_night>
+					<snow_allday>
+						<in>0.0</in>
+						<cm>0.0</cm>
+					</snow_allday>
+					<snow_day>
+						<in>0.0</in>
+						<cm>0.0</cm>
+					</snow_day>
+					<snow_night>
+						<in>0.0</in>
+						<cm>0.0</cm>
+					</snow_night>
+					<maxwind>
+						<mph>15</mph>
+						<kph>24</kph>
+						<dir>NNW</dir>
+						<degrees>334</degrees>
+					</maxwind>
+					<avewind>
+						<mph>10</mph>
+						<kph>16</kph>
+						<dir>NNW</dir>
+						<degrees>334</degrees>
+					</avewind>
+					<avehumidity>14</avehumidity>
+					<maxhumidity>0</maxhumidity>
+					<minhumidity>0</minhumidity>
+				</forecastday>
+				
+				<forecastday>
+					<date>
+  <epoch>1518285600</epoch>
+  <pretty_short>7:00 PM WAT</pretty_short>
+  <pretty>7:00 PM WAT on February 10, 2018</pretty>
+  <day>10</day>
+  <month>2</month>
+  <year>2018</year>
+  <yday>40</yday>
+  <hour>19</hour>
+  <min>00</min>
+  <sec>0</sec>
+  <isdst>0</isdst>
+  <monthname>February</monthname>
+  <monthname_short>Feb</monthname_short>
+  <weekday_short>Sat</weekday_short>
+  <weekday>Saturday</weekday>
+  <ampm>PM</ampm>
+  <tz_short>WAT</tz_short>
+  <tz_long>Africa/Bangui</tz_long>
+</date>
+					<period>4</period>
+					<high>
+						<fahrenheit>97</fahrenheit>
+						<celsius>36</celsius>
+					</high>
+					<low>
+						<fahrenheit>70</fahrenheit>
+						<celsius>21</celsius>
+					</low>
+					<conditions>Clear</conditions>
+					
+					<icon>clear</icon>
+					<icon_url>http://icons.wxug.com/i/c/k/clear.gif</icon_url>
+					<skyicon></skyicon>
+					<pop>0</pop>
+					<qpf_allday>
+						<in>0.00</in>
+						<mm>0</mm>
+					</qpf_allday>
+					<qpf_day>
+						<in>0.00</in>
+						<mm>0</mm>
+					</qpf_day>
+					<qpf_night>
+						<in>0.00</in>
+						<mm>0</mm>
+					</qpf_night>
+					<snow_allday>
+						<in>0.0</in>
+						<cm>0.0</cm>
+					</snow_allday>
+					<snow_day>
+						<in>0.0</in>
+						<cm>0.0</cm>
+					</snow_day>
+					<snow_night>
+						<in>0.0</in>
+						<cm>0.0</cm>
+					</snow_night>
+					<maxwind>
+						<mph>15</mph>
+						<kph>24</kph>
+						<dir>NNW</dir>
+						<degrees>342</degrees>
+					</maxwind>
+					<avewind>
+						<mph>10</mph>
+						<kph>16</kph>
+						<dir>NNW</dir>
+						<degrees>342</degrees>
+					</avewind>
+					<avehumidity>16</avehumidity>
+					<maxhumidity>0</maxhumidity>
+					<minhumidity>0</minhumidity>
+				</forecastday>
+				
+			</forecastdays>
+		</simpleforecast>
+	</forecast>
+
+	
+	
+		
+	
+
+    
+    
+    
+	
+  
+	
+	
+	
+	
+	
+    
+    
+
+
+    
+    
+    
+    
+</response>
+	

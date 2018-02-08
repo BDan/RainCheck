@@ -1,0 +1,16 @@
+# =============== #
+# Eclipse files   #
+# =============== #
+*.classpath
+*.project
+*.springBeans
+.settings
+.settings/*.*
+
+# =============== #
+# Credentials     #
+# =============== #
+raincheck_be/config/application.properties
+
+target
+target/*.*

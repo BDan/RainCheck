@@ -1,0 +1,78 @@
+<div class="container-fluid">
+
+	<div>
+		Location <input ng-model="$ctrl.location_query">
+		<button type="button" ng-show="$ctrl.location_query"
+			ng-click="$ctrl.locationSearch();">Search</button>
+	</div>
+	<div ng-show="$ctrl.showLocations">
+
+		<p>
+			<b>Results</b>
+		</p>
+		<p ng-show="$ctrl.locations.error">Error:
+			{{$ctrl.locations.error}}</p>
+
+		<ul ng-repeat="location in $ctrl.locations.locations">
+			<li>{{location.city}},{{location.country}},{{location.region}},
+				{{location.key}}
+				<button type="button" ng-click="$ctrl.selection=location;$ctrl.fetchWeather();">Select</button>
+			</li>
+		</ul>
+
+	</div>
+	<div>
+		<b>Weather</b>
+		<p>At location: {{$ctrl.selection}}</p>
+		<button type="button" ng-click="$ctrl.fetchWeather();" ng-show="false">Fetch</button>
+		<div ng-show="$ctrl.weather.success==false" style="color: red">{{$ctrl.weather.error}}</div>
+
+
+		<table style="margin:20px" ng-show="$ctrl.weather.success==true">
+			<tr>
+				<th>Temperature[C]:</th>
+				<td>{{$ctrl.weather.tempC}}</td>
+			</tr>
+			<tr>
+				<th>Feels Like[C]:</th>
+				<td>{{$ctrl.weather.feelsLikeC}}</td>
+			</tr>
+			<tr>
+				<th>Atmospheric pressure[mBar]:</th>
+				<td>{{$ctrl.weather.pressureMb}}</td>
+			</tr>
+
+			<tr>
+				<th>Wind direction:</th>
+				<td>{{$ctrl.weather.windDirection}}</td>
+			</tr>
+			<tr>
+				<th>Wind speed [Km/h]:</th>
+				<td>{{$ctrl.weather.windSpeedKmh}}</td>
+			</tr>
+
+		</table>
+
+		<div style="margin:20px" ng-show="$ctrl.forecast.success==true">
+            <p>Forecast</p>
+			<table>
+                <tr>
+                    <th>Date</th>
+                    <th>Highest [C]</th>
+                    <th>Lowest [C]</th>
+                    <th>Average Wind Speed [Km/h]</th>
+                </tr>
+				<tr ng-repeat="day in $ctrl.forecast.forecastDays">
+					<td>{{day.date}}</td>
+                    <td>{{day.maxC}}</td>
+                    <td>{{day.minC}}</td>
+                    <td>{{day.averageWindKmh}}</td>
+                    
+				</tr>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+
+</div>
