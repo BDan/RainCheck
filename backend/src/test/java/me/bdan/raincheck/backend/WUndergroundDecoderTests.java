@@ -1,7 +1,9 @@
 package me.bdan.raincheck.backend;
 
 import static me.bdan.raincheck.backend.TestUtils.parseXmlFile;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -20,7 +22,7 @@ import me.bdan.raincheck.backend.data.LocationResponse;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class WUndergroundDecoderTests {
-	final String DIR = "..\\test_data\\api\\wunderground\\";
+	final String DIR = "../test_data/api/wunderground/";
 	AccessorWUnderground accessor = new AccessorWUnderground(null);;
 
 

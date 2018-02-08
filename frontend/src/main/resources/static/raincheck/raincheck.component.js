@@ -16,8 +16,13 @@ angular.
           }
           self.showLocations = true;
           $http.get('/api/search/locations/'+query).then(function(response) {
+            //console.log(response);
             self.locations = response.data;
             //console.log(self.locations);
+          },function(err){
+            self.locations = {};
+            self.locations.success=false;
+            self.locations.error=err.data;
           });
       }
       self.fetchWeather = () => {
