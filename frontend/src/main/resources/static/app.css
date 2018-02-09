@@ -4,7 +4,6 @@ body {
 
 table tr{
     border: 1px solid black;
-    
 }
 
 
@@ -17,4 +16,20 @@ table td,th{
 table th{
     background: #4a4a4a;
     color: white;
+}
+
+table.clear-table {
+	border: 0px solid white;
+}
+
+table.clear-table tr{
+	border: 0px solid white;
+}
+
+table.clear-table td,th {
+    border: 0px solid white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }

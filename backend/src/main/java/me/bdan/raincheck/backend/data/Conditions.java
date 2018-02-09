@@ -18,6 +18,9 @@
 package me.bdan.raincheck.backend.data;
 
 public class Conditions extends RemoteResult {
+	private String city;
+	private String stateName;
+	private String coords;
 	private String tempC;
 	private String windDirection ="";
 	private String windSpeedKmh;
@@ -60,11 +63,33 @@ public class Conditions extends RemoteResult {
 	public void setRelativeHumidity(String relativeHumidity) {
 		this.relativeHumidity = relativeHumidity;
 	}
+
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getStateName() {
+		return stateName;
+	}
+	public void setStateName(String stateName) {
+		this.stateName = stateName;
+	}
+	public String getCoords() {
+		return coords;
+	}
+	public void setCoords(String coords) {
+		this.coords = coords;
+	}
+	
+	
 	@Override
 	public String toString() {
-		return "Conditions [tempC=" + tempC + ", windDirection=" + windDirection + ", windSpeedKmh=" + windSpeedKmh
-				+ ", feelsLikeC=" + feelsLikeC + ", pressureMb=" + pressureMb + ", relativeHumidity=" + relativeHumidity
-				+ ", success=" + success + ", error=" + error + "]";
+		return "Conditions [city=" + city + ", stateName=" + stateName + ", coords=" + coords + ", tempC=" + tempC
+				+ ", windDirection=" + windDirection + ", windSpeedKmh=" + windSpeedKmh + ", feelsLikeC=" + feelsLikeC
+				+ ", pressureMb=" + pressureMb + ", relativeHumidity=" + relativeHumidity + ", success=" + success
+				+ ", error=" + error + "]";
 	}
 	
 	

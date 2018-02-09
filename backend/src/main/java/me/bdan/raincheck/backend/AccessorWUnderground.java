@@ -145,6 +145,12 @@ public class AccessorWUnderground {
 		retVal.setFeelsLikeC(getString(doc, "/response/current_observation/feelslike_c", NA));
 		retVal.setPressureMb(getString(doc, "/response/current_observation/pressure_mb", NA));
 		retVal.setRelativeHumidity(getString(doc, "/response/current_observation/relative_humidity", NA));
+		retVal.setCity(getString(doc,"/response/current_observation/display_location/city",NA));
+		retVal.setStateName(getString(doc,"/response/current_observation/display_location/state_name",NA));
+		String lat = getString(doc, "/response/current_observation/display_location/latitude", "0");
+		String lon = getString(doc, "/response/current_observation/display_location/longitude", "0");
+		retVal.setCoords(lat+","+lon);
+		
 		return retVal;
 	}
 

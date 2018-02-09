@@ -1,8 +1,18 @@
 <div class="container-fluid">
 	<div>
-		Location <input ng-model="$ctrl.location_query">
+		Location <input ng-model="$ctrl.location_query"
+			ng-keypress="$ctrl.onKeypressedLocation($event);" type="text">
+
 		<button type="button" ng-show="$ctrl.location_query"
-			ng-click="$ctrl.locationSearch();">Search</button>
+			ng-click="$ctrl.locationSearch();" class="btn btn-default btn-sm">
+			<span class="glyphicon glyphicon-search"></span>
+		</button>
+		<button type="button"
+			ng-click="$ctrl.fetchFavorites();$ctrl.doBlur($event);"
+			class="btn btn-default btn-sm">
+			<span class="glyphicon glyphicon-heart"></span>
+		</button>
+
 	</div>
 	<div ng-show="$ctrl.locations.success==false" style="color: red">{{$ctrl.locations.error}}</div>
 	<div ng-show="$ctrl.showLocations && $ctrl.locations.success == true">
@@ -11,70 +21,109 @@
 		</p>
 		<p ng-show="$ctrl.locations.locations.length==0" style="color: red">Not
 			found</p>
-
-		<ul ng-repeat="location in $ctrl.locations.locations">
-			<li>{{location.city}},{{location.country}}
-				<button type="button"
-					ng-click="$ctrl.selection=location;$ctrl.fetchWeather();">Select</button>
-			</li>
-		</ul>
-	</div>
-	<div ng-show="$ctrl.weather.success==true">
-		<b>Weather</b>
-		<table style="margin: 20px">
-			<tr>
-				<th>City:</th>
-				<td>{{$ctrl.selection.city}}</td>
-			</tr>
-			<tr>
-				<th>Country:</th>
-				<td>{{$ctrl.selection.country}}</td>
-			</tr>
-
-			<tr>
-				<th>Temperature[C]:</th>
-				<td>{{$ctrl.weather.tempC}}</td>
-			</tr>
-			<tr>
-				<th>Feels Like[C]:</th>
-				<td>{{$ctrl.weather.feelsLikeC}}</td>
-			</tr>
-			<tr>
-				<th>Atmospheric pressure[mBar]:</th>
-				<td>{{$ctrl.weather.pressureMb}}</td>
-			</tr>
-
-			<tr>
-				<th>Wind direction:</th>
-				<td>{{$ctrl.weather.windDirection}}</td>
-			</tr>
-			<tr>
-				<th>Wind speed [Km/h]:</th>
-				<td>{{$ctrl.weather.windSpeedKmh}}</td>
-			</tr>
-
-		</table>
-	</div>
-	<div ng-show="$ctrl.weather.success==false" style="color: red">{{$ctrl.weather.error}}</div>
-
-	<div style="margin: 20px" ng-show="$ctrl.forecast.success==true">
-		<p>Forecast</p>
-		<table>
-			<tr>
-				<th>Date</th>
-				<th>Highest [C]</th>
-				<th>Lowest [C]</th>
-				<th>Average Wind Speed [Km/h]</th>
-			</tr>
-			<tr ng-repeat="day in $ctrl.forecast.forecastDays">
-				<td>{{day.date}}</td>
-				<td>{{day.maxC}}</td>
-				<td>{{day.minC}}</td>
-				<td>{{day.averageWindKmh}}</td>
+		<table class="clear-table">
+			<tr ng-repeat="location in $ctrl.locations.locations">
+				<td><a href="#"
+					ng-click="$ctrl.selection=location;$ctrl.fetchWeather();">{{location.city}}</a></td>
+				<td>{{location.country}}</td>
+				<td>
+					<button type="button" class="btn btn-default btn-sm"
+						ng-click="$ctrl.addFavorite(location.city,location.key);$ctrl.doBlur($event);">
+						<span class="glyphicon glyphicon-heart"></span>
+					</button>
+				</td>
 			</tr>
 		</table>
 	</div>
 
 
+	<div ng-show="$ctrl.showFavorites">
+		<p>
+			<b>Favourites</b>
+		</p>
+		<table class="clear-table">
+			<tr ng-repeat="favorite in $ctrl.favorites.favorites">
+				<td><a href="#"
+					ng-click="$ctrl.selection={city:favorite.name,key:favorite.locationKey};$ctrl.fetchWeather();">{{favorite.name}}</a>
+				</td>
+				<td>
+					<button type="button" class="btn btn-default btn-sm"
+						ng-click="$ctrl.removeFavorite(favorite._links.self.href);$ctrl.doBlur($event);">
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+				</td>
+			</tr>
+		</table>
+	</div>
 
+
+	<div ng-show="$ctrl.showWeather">
+		<div ng-show="$ctrl.weather.success==true">
+			<b>Weather</b>
+			<table style="margin: 20px">
+				<tr>
+					<th>City:</th>
+					<td>{{$ctrl.weather.city}}</td>
+				</tr>
+				<tr>
+					<th>Country:</th>
+					<td>{{$ctrl.weather.stateName}}</td>
+				</tr>
+				<tr>
+					<th>Map:</th>
+					<td><a
+						href="https://www.google.com/maps/?q={{$ctrl.weather.coords}}"
+						target="_blank">{{$ctrl.weather.city}}</a></td>
+				</tr>
+
+				<tr>
+					<th>Temperature[C]:</th>
+					<td>{{$ctrl.weather.tempC}}</td>
+				</tr>
+				<tr>
+					<th>Feels Like[C]:</th>
+					<td>{{$ctrl.weather.feelsLikeC}}</td>
+				</tr>
+				<tr>
+					<th>Atmospheric pressure[mBar]:</th>
+					<td>{{$ctrl.weather.pressureMb}}</td>
+				</tr>
+
+				<tr>
+					<th>Wind direction:</th>
+					<td>{{$ctrl.weather.windDirection}}</td>
+				</tr>
+				<tr>
+					<th>Wind speed [Km/h]:</th>
+					<td>{{$ctrl.weather.windSpeedKmh}}</td>
+				</tr>
+
+			</table>
+		</div>
+		<div ng-show="$ctrl.weather.success==false" style="color: red">{{$ctrl.weather.error}}</div>
+
+		<div ng-show="$ctrl.forecast.success==true">
+			<p><b>Forecast</b></p>
+			<table style="margin: 20px">
+				<tr>
+					<th>Date</th>
+					<th>Highest [C]</th>
+					<th>Lowest [C]</th>
+					<th>Average Wind Speed [Km/h]</th>
+				</tr>
+				<tr ng-repeat="day in $ctrl.forecast.forecastDays">
+					<td>{{day.date}}</td>
+					<td>{{day.maxC}}</td>
+					<td>{{day.minC}}</td>
+					<td>{{day.averageWindKmh}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<hr />
+<div>
+
+	<span>Powered by <a href="https://www.wunderground.com/"><img
+			src="img/wu_logo.jpg"></a></span>
 </div>

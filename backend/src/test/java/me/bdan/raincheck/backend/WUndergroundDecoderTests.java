@@ -57,6 +57,9 @@ public class WUndergroundDecoderTests {
 		assertEquals("39", c.getFeelsLikeC());
 		assertEquals("1003", c.getPressureMb());
 		assertEquals("4%", c.getRelativeHumidity());
+		assertEquals("Oului", c.getCity());
+		assertEquals("Central African Republic", c.getStateName());
+		assertEquals("7.44000006,15.84000015", c.getCoords());
 	}
 
 	@Test
