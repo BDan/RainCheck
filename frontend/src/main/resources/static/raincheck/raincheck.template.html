@@ -1,23 +1,45 @@
 <div class="container-fluid">
+
+
+	<div style="margin-bottom: 20px;">
+		<b>User:</b> {{$ctrl.auth.user}}
+
+
+	</div>
+	<div style="margin-bottom: 20px;">
+		<span ng-show="!$ctrl.auth.authenticated"> <b>User:</b> <input ng-model="$ctrl.auth_user"
+			type="text"> <b>Password:</b> <input
+			ng-model="$ctrl.auth_pwd" type="password">
+		</span>
+		<button type="button" ng-click="$ctrl.authenticate();"
+			class="btn btn-default btn-sm" data-toggle="tooltip"
+			title="Log in">
+			<span class="glyphicon glyphicon-log-in"></span>
+		</button>
+
+	</div>
 	<div>
-		Location <input ng-model="$ctrl.location_query"
-			ng-keypress="$ctrl.onKeypressedLocation($event);" type="text">
+		<b>Location</b> <input ng-model="$ctrl.location_query"
+			ng-keypress="$ctrl.onKeypressedLocation($event);" type="text" />
 
 		<button type="button" ng-show="$ctrl.location_query"
-			ng-click="$ctrl.locationSearch();" class="btn btn-default btn-sm">
+			ng-click="$ctrl.locationSearch();" class="btn btn-default btn-sm"
+			data-toggle="tooltip" title="Search location">
 			<span class="glyphicon glyphicon-search"></span>
 		</button>
-		<button type="button"
-			ng-click="$ctrl.fetchFavorites();$ctrl.doBlur($event);"
-			class="btn btn-default btn-sm">
-			<span class="glyphicon glyphicon-heart"></span>
-		</button>
-
+		<p style="margin-top: 10px">
+			<button type="button"
+				ng-click="$ctrl.fetchFavorites();$ctrl.doBlur($event);"
+				ng-show="$ctrl.auth.authenticated"
+				class="btn btn-default btn-sm" data-toggle="tooltip"
+				title="Show favorites">
+				<span class="glyphicon glyphicon-star"></span>
+			</button>
 	</div>
 	<div ng-show="$ctrl.locations.success==false" style="color: red">{{$ctrl.locations.error}}</div>
 	<div ng-show="$ctrl.showLocations && $ctrl.locations.success == true">
 		<p>
-			<b>Results</b>
+			<b>Search Results</b>
 		</p>
 		<p ng-show="$ctrl.locations.locations.length==0" style="color: red">Not
 			found</p>
@@ -28,8 +50,19 @@
 				<td>{{location.country}}</td>
 				<td>
 					<button type="button" class="btn btn-default btn-sm"
-						ng-click="$ctrl.addFavorite(location.city,location.key);$ctrl.doBlur($event);">
-						<span class="glyphicon glyphicon-heart"></span>
+						ng-click="$ctrl.selection=location;$ctrl.fetchWeather();$ctrl.doBlur($event);"
+						data-toggle="tooltip" title="Display weather for location">
+
+						<span class="glyphicon glyphicon-arrow-right"></span>
+					</button>
+				</td>
+				<td>
+					<button type="button" class="btn btn-default btn-sm"
+						ng-show="$ctrl.auth.authenticated"
+						ng-click="$ctrl.addFavorite(location.city,location.key);$ctrl.doBlur($event);"
+						data-toggle="tooltip" title="Add to favorites">
+						<span class="glyphicon glyphicon-star-empty"></span>
+
 					</button>
 				</td>
 			</tr>
@@ -46,9 +79,21 @@
 				<td><a href="#"
 					ng-click="$ctrl.selection={city:favorite.name,key:favorite.locationKey};$ctrl.fetchWeather();">{{favorite.name}}</a>
 				</td>
+
 				<td>
 					<button type="button" class="btn btn-default btn-sm"
-						ng-click="$ctrl.removeFavorite(favorite._links.self.href);$ctrl.doBlur($event);">
+						ng-click="$ctrl.selection={city:favorite.name,key:favorite.locationKey};$ctrl.fetchWeather();$ctrl.doBlur($event);"
+						data-toggle="tooltip" title="Display weather for location">
+
+						<span class="glyphicon glyphicon-arrow-right"></span>
+					</button>
+				</td>
+
+
+				<td>
+					<button type="button" class="btn btn-default btn-sm"
+						ng-click="$ctrl.removeFavorite(favorite._links.self.href);$ctrl.doBlur($event);"
+						data-toggle="tooltip" title="Remove from favorites">
 						<span class="glyphicon glyphicon-trash"></span>
 					</button>
 				</td>
@@ -103,7 +148,9 @@
 		<div ng-show="$ctrl.weather.success==false" style="color: red">{{$ctrl.weather.error}}</div>
 
 		<div ng-show="$ctrl.forecast.success==true">
-			<p><b>Forecast</b></p>
+			<p>
+				<b>Forecast</b>
+			</p>
 			<table style="margin: 20px">
 				<tr>
 					<th>Date</th>

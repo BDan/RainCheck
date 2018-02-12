@@ -9,6 +9,36 @@ component('raincheck', {
         self.showLocations = false;
         self.showFavorites = false;
         self.showWeather = false;
+        self.auth={}
+        
+        //let token = "YmlsbDphYmMxMjM=";
+        
+        //$http.defaults.headers.common['Authorization'] = 'Basic ' + token;
+        
+        self.getUser = () => {
+        	if (self.auth && self.auth.authenticated){
+        		return auth.user;
+        	} else{
+        		return "Not logged in";
+        	}
+        }
+        
+        self.authenticate = ()=>{
+        	var user = self.auth_user;
+        	var token = btoa(user+":"+self.auth_pwd);
+        	$http.get('/api/credentials/' + token).then( (response) =>{
+                let auth = response.data;
+                if (auth.authenticated){
+                	self.auth.user=user;
+                	self.auth.authenticated = true;
+                	$http.defaults.headers.common['Authorization'] = 'Basic ' + token;
+                }else{
+                	alert("Authentication failed");
+                }
+            }, (err)  => {alert("Authentication failed")});
+        	
+        	
+        }
 
         self.locationSearch = () => {
             var query = self.location_query;
@@ -43,8 +73,11 @@ component('raincheck', {
             self.showLocations = false;
             self.showFavorites = true;
             self.showWeather = false;
-            $http.get('/data/favorites').then(function (response) {
+            $http.get('/data/favorites').then(response=> {
                 self.favorites = response.data._embedded;
+            },
+            err => {
+                alert(err.data.message)
             });
         };
         self.addFavorite = (name, key) => {

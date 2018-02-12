@@ -18,4 +18,12 @@
 package me.bdan.raincheck.frontend;
 
 import org.springframework.data.repository.CrudRepository;
-public interface FavoriteRepository extends CrudRepository<Favorite, Long> {}
+import org.springframework.security.access.prepost.PreAuthorize;
+
+
+public interface FavoriteRepository extends CrudRepository<Favorite, Long> {
+	
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @Override
+    void delete(Long aLong);
+}

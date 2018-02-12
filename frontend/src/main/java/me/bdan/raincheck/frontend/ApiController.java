@@ -20,10 +20,16 @@ package me.bdan.raincheck.frontend;
 import java.io.IOException;
 import java.io.Writer;
 import java.net.URI;
+import java.util.Base64;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +44,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  */
 
 @RestController
+@RequestMapping("/api")
 public class ApiController {
 	@Value("${weather.server.host}")
 	private String weatherAccessorHost;
@@ -45,12 +52,63 @@ public class ApiController {
 	private int weatherAccessPort;
 
 	private RestTemplate restTemplate = new RestTemplate();
+	@Autowired
+	AuthenticationManager authenticationManager;
     
 
-	@RequestMapping("/api")
+	@RequestMapping("/")
     public String apiIndex() {
         return "Front-End API here!";
     }
+	
+	
+
+	class Auth{
+		public Auth(boolean authenticated, String msg) {
+			super();
+			this.authenticated = authenticated;
+			this.msg = msg;
+		}
+		public boolean isAuthenticated() {
+			return authenticated;
+		}
+		public void setAuthenticated(boolean authenticated) {
+			this.authenticated = authenticated;
+		}
+		public String getMsg() {
+			return msg;
+		}
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+		boolean authenticated;
+		String msg;
+	}
+    @RequestMapping("/credentials/{query}")
+    public Auth credentials(@PathVariable("query") String query) {
+    	System.out.println(query);
+    	String decoded = new String(Base64.getDecoder().decode(query));
+    	System.out.println(decoded);
+    	String[] pcs = decoded.split(":");
+    	if (pcs.length!=2) {
+    		return new Auth(false,"Incorrect credentials");
+    	}
+    	
+    	//Authentication 
+    	try {
+    		Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(pcs[0], pcs[1]));
+    		return new Auth(auth.isAuthenticated(),"");
+    	}
+    	catch (AuthenticationException e){
+    		return new Auth(false,e.getMessage());
+    	}
+    	
+    	
+    	
+    }
+
+
+	
 	
     /**
      * Front-end handler for "forecast" HTTP GET calls
@@ -58,7 +116,7 @@ public class ApiController {
      * @return
      */
 	
-    @RequestMapping("/api/search/locations/{query}")
+    @RequestMapping("/search/locations/{query}")
     public String location(@PathVariable("query") String query) {
     	URI uri = baseURI()
     			.path("/api/search/locations")
@@ -75,7 +133,7 @@ public class ApiController {
      * @return
      */
     
-    @RequestMapping("/api/locations/{key}/conditions")
+    @RequestMapping("/locations/{key}/conditions")
     public String conditions(@PathVariable("key") String key) {
     	URI uri = baseURI()
     			.path("/api/locations")
@@ -91,7 +149,7 @@ public class ApiController {
      * @param key Data source compatible location code (WUnderground zmw)
      * @return
      */
-    @RequestMapping("/api/locations/{key}/forecast")
+    @RequestMapping("/locations/{key}/forecast")
     public String forecast(@PathVariable("key") String key) {
     	URI uri = baseURI()
     			.path("/api/locations")
