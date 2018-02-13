@@ -15,13 +15,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+
 package me.bdan.raincheck.frontend;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import me.bdan.raincheck.frontend.data.Favorite;
+import me.bdan.raincheck.frontend.data.AuthorizationData;
 
-@PreAuthorize("hasAuthority('ROLE_ADMIN')")
-public interface FavoriteRepository extends CrudRepository<Favorite, Long> {
+import static org.junit.Assert.*;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class AuthorisationTests {
+	
+	@Autowired
+	ApiController ac;
+	@Autowired
+	AuthorizationData ad;
+
+	@Test
+	public void authSuccess() {
+		assertTrue(ac.authorize("frontend","fe"));
+	}
+	
+	@Test
+	public void authWrongCredentials() {
+		assertFalse(ac.authorize("frontend","**"));
+		assertEquals("Incorrect credentials",ad.getErr());
+	}
 }

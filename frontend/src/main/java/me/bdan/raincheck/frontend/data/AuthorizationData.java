@@ -15,13 +15,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package me.bdan.raincheck.frontend;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.security.access.prepost.PreAuthorize;
+package me.bdan.raincheck.frontend.data;
 
-import me.bdan.raincheck.frontend.data.Favorite;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@PreAuthorize("hasAuthority('ROLE_ADMIN')")
-public interface FavoriteRepository extends CrudRepository<Favorite, Long> {
+@Data
+@NoArgsConstructor
+@Setter
+@Getter
+public class AuthorizationData {
+	boolean authorized;
+	String token;
+	String err;
+	long expires;
 }

@@ -1,0 +1,23 @@
+{"properties": [
+  {
+    "name": "backend.host",
+    "type": "java.lang.String",
+    "description": "Host on which backend runs"
+  },
+  {
+    "name": "backend.port",
+    "type": "java.lang.String",
+    "description": "Port on which backend runs"
+  },
+
+  {
+    "name": "backend.auth.user",
+    "type": "java.lang.String",
+    "description": "User account for backend authorisation"
+  },
+  {
+    "name": "backend.auth.password",
+    "type": "java.lang.String",
+    "description": "Password for backend authorisation"
+  }
+]}

@@ -15,13 +15,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package me.bdan.raincheck.frontend;
+package me.bdan.raincheck.frontend.data;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.security.access.prepost.PreAuthorize;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import me.bdan.raincheck.frontend.data.Favorite;
+/**
+ * Response to be sent towards the AngularJS client
+ * Using Basic authentication
+ * @author Dan Bendas
+ *
+ */
 
-@PreAuthorize("hasAuthority('ROLE_ADMIN')")
-public interface FavoriteRepository extends CrudRepository<Favorite, Long> {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class AuthenticationResponse{
+	boolean authenticated;
+	String msg;
 }
+

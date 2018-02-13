@@ -45,8 +45,7 @@
 			found</p>
 		<table class="clear-table">
 			<tr ng-repeat="location in $ctrl.locations.locations">
-				<td><a href="#"
-					ng-click="$ctrl.selection=location;$ctrl.fetchWeather();">{{location.city}}</a></td>
+				<td>{{location.city}}</td>
 				<td>{{location.country}}</td>
 				<td>
 					<button type="button" class="btn btn-default btn-sm"
@@ -76,9 +75,7 @@
 		</p>
 		<table class="clear-table">
 			<tr ng-repeat="favorite in $ctrl.favorites.favorites">
-				<td><a href="#"
-					ng-click="$ctrl.selection={city:favorite.name,key:favorite.locationKey};$ctrl.fetchWeather();">{{favorite.name}}</a>
-				</td>
+				<td>{{favorite.name}}</td>
 
 				<td>
 					<button type="button" class="btn btn-default btn-sm"

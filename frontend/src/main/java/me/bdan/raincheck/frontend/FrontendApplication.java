@@ -19,11 +19,18 @@ package me.bdan.raincheck.frontend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import me.bdan.raincheck.frontend.data.AuthorizationData;
 
 @SpringBootApplication
 public class FrontendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FrontendApplication.class, args);
+	}
+	@Bean
+	AuthorizationData authorizationData() {
+		return new AuthorizationData();
 	}
 }

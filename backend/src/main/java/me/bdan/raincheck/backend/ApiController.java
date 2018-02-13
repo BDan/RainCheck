@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import me.bdan.raincheck.backend.data.AuthenticationResponse;
 import me.bdan.raincheck.backend.data.Conditions;
 import me.bdan.raincheck.backend.data.ForecastResponse;
 import me.bdan.raincheck.backend.data.LocationResponse;
@@ -36,11 +37,15 @@ public class ApiController {
 	
 	@Value("${wu.api.key}")
 	private String API_KEY;
+	@Value("${jwt.secret}")
+	private String SECRET;
 	AccessorWUnderground accessor;
+	Authenticator authenticator;
 
 	@PostConstruct
 	public void initAfterStartup() {
 		accessor = new AccessorWUnderground(API_KEY);
+		authenticator = new Authenticator(SECRET);
 	}
 	
 	@RequestMapping("/")
@@ -63,4 +68,8 @@ public class ApiController {
 		return accessor.fetchForecastForKey(locationKey);
 	}
 
+	@RequestMapping("/api/authenticate/{key}")
+	public @ResponseBody AuthenticationResponse atte(@PathVariable(value = "key") String key) {
+		return authenticator.authenticate(key);
+	}
 }
